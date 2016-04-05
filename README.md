@@ -4,18 +4,18 @@ Accelerometer-based pedometer algorithm for embedded applications
 This code implements a step counting algorithm using X,Y,Z accelerometer data. It is written in
 C and is completely fixed point, with the intention of running in real time in an embedded system.
 The core of the algorithm is the autocorrelation function, which can be used to find the periodicity
-of a noisy signal in the time domain. An overview of the algorithm is as follows:
-1. calculate the magnitude of the X,Y,Z accelerometer data
-2. apply a low pass filter to the magnitude data
-3. remove the mean
-4. apply the autocorrelation
+of a noisy signal in the time domain. An overview of the algorithm is as follows:  
+1. calculate the magnitude of the X,Y,Z accelerometer data  
+2. apply a low pass filter to the magnitude data  
+3. remove the mean  
+4. apply the autocorrelation  
 5. calculate the derivative and find the first zero crossing from positive to negative,
-which corresponds to the first positive peak in the autocorrelation
-6. using the result from the previous step, hone in on the exact autocorrelation peak index
+which corresponds to the first positive peak in the autocorrelation  
+6. using the result from the previous step, hone in on the exact autocorrelation peak index  
 7. calculate some basic statistics about the autocorrelation peak to determine if it corresponds
-to actual walking, or just noise (no walking)
+to actual walking, or just noise (no walking)  
 8. if the autocorrelation peak is valid, calculate the number of steps based on the calculated 
-frequency of autocorrelation
+frequency of autocorrelation  
 
 The entry point of the algorithm is the count_steps function in count_steps.c. The data format
 expected is a pointer to a buffer of int8_t accelerometer data (i.e, -128 to +127) stored in
