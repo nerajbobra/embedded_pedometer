@@ -160,7 +160,7 @@ static void autocorr(int32_t *lpf, int64_t *autocorr_buff) {
 //calculate and remove the mean
 static void remove_mean(int32_t *lpf) {
     
-    int32_t sum;
+    int32_t sum = 0;
     uint16_t i;
     for (i = 0; i < NUM_TUPLES; i++) {
         sum += lpf[i];
