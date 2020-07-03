@@ -30,6 +30,7 @@ to get a WINDOW_LENGTH of 4 seconds with a SAMPLING_RATE of 20Hz, NUM_TUPLES sho
 80. The only other value to adjust is NUM_AUTOCORR_LAGS, which determines the maximum frequency
 that can be calculated. It should be set such that it corresponds to roughly 0.4Hz.
 
+For the provided data file, there should be approximately 20 steps. The algorithm output is 21 steps.
 
 
 
